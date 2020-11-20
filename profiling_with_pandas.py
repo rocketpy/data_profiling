@@ -6,3 +6,13 @@
 import pandas as pd
 import seaborn as sns
 import pandas_profiling
+
+
+car_crashes = sns.load_dataset('car_crashes')
+# car_crashes.head()
+
+df = sns.load_dataset('car_crashes')
+
+# some info about df
+# df.describe()
+# df.info()
