@@ -25,3 +25,13 @@ profile.to_file("Car_crashes.html")  # outputfile="Car_crashes.html"
 df = pd.read_csv('file_name.csv')
 profile = pandas_profiling.ProfileReport(df)
 profile.to_file(outputfile="file_name.html")
+
+
+#  Large datasets
+
+# Version 2.4 introduces minimal mode.
+
+# This is a default configuration that disables expensive computations (such as correlations and duplicate row detection).
+profile = ProfileReport(large_dataset, minimal=True)
+profile.to_file("output.html")
+
