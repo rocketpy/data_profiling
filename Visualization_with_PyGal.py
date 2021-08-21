@@ -9,7 +9,7 @@ df = sns.load_dataset('tips')
 
 # Simple Bar Chart
 bar_chart = pygal.Bar()  
-bar_chart.add('Tips', df['tips'])  
+bar_chart.add('Tip', df['tip'])  
 bar_chart.render_to_file('bar_chart.svg')
 
 
@@ -24,3 +24,9 @@ line_chart = pygal.Line()
 line_chart.add('Total', df['total'][:15])
 line_chart.render_to_file('line.svg')
 
+
+# Double Line Chart
+line_chart.add('Total', df['total_bill'][:15])
+line_chart.add('Tip', df['tip'][:15])
+line_chart.render_to_file('line_2.svg')
+ 
