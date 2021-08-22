@@ -1,3 +1,8 @@
+# A python svg graph plotting library
+
+# PyPi: https://pypi.org/project/pygal/
+# Docs: http://www.pygal.org/en/stable/index.html
+
 # pip install pygal
 
 import pygal
