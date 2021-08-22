@@ -3,6 +3,8 @@
 # PyPi: https://pypi.org/project/pygal/
 # Docs: http://www.pygal.org/en/stable/index.html
 
+# Chart types: http://www.pygal.org/en/stable/documentation/types/index.html
+
 # pip install pygal
 
 import pygal
@@ -15,13 +17,26 @@ df = sns.load_dataset('tips')
 # Simple Bar Chart
 bar_chart = pygal.Bar()  
 bar_chart.add('Tip', df['tip'])  
+bar_chart.title = "Bla bla"
 bar_chart.render_to_file('bar_chart.svg')
+# bar_chart.render_in_browser()
 
 
 # Double Bar Chart
 bar_chart.add('Tip', df['tip'][:10])
 bar_chart.add('Total Bill', df['total'][:10])
 bar_chart.render_to_file('bar_chart_2.svg')
+
+
+# Horizontal bar diagram
+line_chart = pygal.HorizontalBar()
+line_chart.title = 'Browser usage in February 2012 (in %)'
+line_chart.add('IE', 19.5)
+line_chart.add('Firefox', 36.6)
+line_chart.add('Chrome', 36.3)
+line_chart.add('Safari', 4.5)
+line_chart.add('Opera', 2.3)
+line_chart.render()
 
 
 # Line Chart
