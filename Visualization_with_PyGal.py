@@ -1,4 +1,4 @@
-# A python svg graph plotting library
+# A python svg graph plotting library and creating interactive charts ! 
 
 # PyPi: https://pypi.org/project/pygal/
 # Docs: http://www.pygal.org/en/stable/index.html
@@ -8,7 +8,8 @@
 # pip install pygal
 
 import pygal
-import seaborn as sns
+import seaborn as sns  # just for datasets
+from pygal.style import Style
 
 
 # Loading Dataset
@@ -20,6 +21,16 @@ bar_chart.add('Tip', df['tip'])
 bar_chart.title = "Bla bla"
 bar_chart.render_to_file('bar_chart.svg')
 # bar_chart.render_in_browser()
+
+
+# Customizing the graph and using a Style
+custom_style = Style(colors=('#E80080', '#404040', '#9BC850'))
+bar_chart = pygal.Bar(style=custom_style)
+bar_chart.title = "Some text"
+bar_chart.add("A", [0.95])
+bar_chart.add("B", [1.25])
+bar_chart.add("C", [1])
+bar_chart.render_in_browser()
 
 
 # Double Bar Chart
