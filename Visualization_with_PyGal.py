@@ -4,8 +4,10 @@
 # Docs: http://www.pygal.org/en/stable/index.html
 
 # Chart types: http://www.pygal.org/en/stable/documentation/types/index.html
+# Maps: http://www.pygal.org/en/stable/documentation/types/maps/pygal_maps_world.html
 
 # pip install pygal
+# pip install pygal_maps_world
 
 import pygal
 import seaborn as sns  # just for datasets
@@ -75,4 +77,16 @@ funnel_chart.title = 'Total'
 funnel_chart.add('Total', df['total_bill'][:15])
 funnel_chart.add('Tip', df['tip'][:15])
 funnel_chart.render_to_file('funnel.svg')
+
+
+# Working with maps
+worldmap_chart = pygal.maps.world.World()
+worldmap_chart.title = 'Some countries'
+worldmap_chart.add('F countries', ['fr', 'fi'])
+worldmap_chart.add('M countries', ['ma', 'mc', 'md', 'me', 'mg',
+                                   'mk', 'ml', 'mm', 'mn', 'mo',
+                                   'mr', 'mt', 'mu', 'mv', 'mw',
+                                   'mx', 'my', 'mz'])
+worldmap_chart.add('U countries', ['ua', 'ug', 'us', 'uy', 'uz'])
+worldmap_chart.render()
  
