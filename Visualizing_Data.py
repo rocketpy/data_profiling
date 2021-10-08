@@ -14,3 +14,15 @@ df_stream = pd.concat([df_stream_0, df_stream_1])
 df_stream['UniqueID'] = df_stream['Name'] + ":" + df_stream['Surname']
 # df_stream.head()
 
+# json file into a pandas dataframe
+df_library = pd.read_json('Library_1.json')
+
+# add Unique ID columт
+df_library['UniqueID'] = df_library['artist'] + ":" + df_library['track']
+
+# add column
+new = df_library["uri"].str.split(":", expand = True)
+df_library['track_uri'] = new[2]
+
+# df_library.head()
+
