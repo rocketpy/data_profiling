@@ -26,3 +26,14 @@ df_library['track_uri'] = new[2]
 
 # df_library.head()
 
+
+# create final dict
+df_tableau = df_stream.copy()
+
+# not used in this project but could be helpful for cool visualizations
+# df_tableau['In Library'] = np.where(df_tableau['UniqueID'].isin(df_library['UniqueID'].tolist()),1,0)
+
+# left join with df_library on UniqueID
+df_tableau = pd.merge(df_tableau, df_library[['album','UniqueID','track_uri']],how='left',on=['UniqueID'])
+
+
