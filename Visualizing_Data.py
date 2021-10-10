@@ -36,4 +36,29 @@ df_tableau = df_stream.copy()
 # left join with df_library on UniqueID
 df_tableau = pd.merge(df_tableau, df_library[['album','UniqueID','track_uri']],how='left',on=['UniqueID'])
 
+# df_tableau.head()
+
+# create a new Dataframe
+# save your IDs from new project in Spotify
+CLIENT_ID = 'your-client-id'
+CLIENT_SECRET = 'your-client-secret'
+
+# generate access token
+# authentication URL
+AUTH_URL = 'https://accounts.spotify.com/api/token'
+
+# POST
+auth_response = requests.post(AUTH_URL, {
+    'grant_type': 'client_credentials',
+    'client_id': CLIENT_ID,
+    'client_secret': CLIENT_SECRET,
+})
+
+# convert the response to JSON
+auth_response_data = auth_response.json()
+
+# save the access token
+access_token = auth_response_data['access_token']
+
+
 
